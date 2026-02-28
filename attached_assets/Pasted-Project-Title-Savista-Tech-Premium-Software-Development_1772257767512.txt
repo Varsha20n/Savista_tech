@@ -1,0 +1,70 @@
+Project Title: Savista Tech – Premium Software Development Portal
+1. Visual Identity & Brand Concept
+Brand Name: Savista Tech.
+
+Design Style: "High-Tech Minimalist" or "Digital Corporate."
+
+Color Palette: * Primary: Deep Obsidian/Midnight Black (#0A0A0A).
+
+Accent: Electric Cobalt (#2E5BFF) and Cyber Cyan (#00F2FF) for highlights.
+
+Neutral: Slate Grey for body text and stark White for headings.
+
+Typography: Use a clean, geometric Sans-Serif. Inter or Montserrat for body text; Outfit or Syne for bold, impactful headings.
+
+2. Section-by-Section Design & Animation Details
+A. The Hero Section (The "Hook")
+Background: An immersive, dark-themed background featuring a moving particle network or a high-shutter-speed abstract video loop of flowing data lines (muted opacity 20-30%).
+
+Animation (Text Reveal): The headline "Empowering the Next Wave of Digital Innovation" should use a Split-Text Reveal. Each word should slide up from an invisible line with a 0.1s stagger between words.
+
+CTA Button: A "Get Started" button with a Magnetic Effect. When the mouse gets close, the button subtly "pulls" toward the cursor. On hover, a gradient glow expands from the center.
+
+B. The Partner/Client Marquee
+Effect: An Infinite Seamless Loop. Logos (AWS, Azure, Cisco, etc.) should be in grayscale.
+
+Interaction: On hover, the marquee should slow down, and the hovered logo should transition from grayscale to its original brand color.
+
+C. Service Cards (Grid of 6)
+Layout: A 3x2 grid with "Glassmorphism" cards (semi-transparent background with a 1px frosted border).
+
+Hover Animation (The "Glow" Effect): Implement a Spotlight Border. As the user moves their mouse over a card, a subtle light follows the cursor underneath the card's border, making it look like the mouse is "lighting up" the edge.
+
+Content Animation: When the section enters the viewport, cards should stagger-fade-in from the bottom (Y: 50px to 0).
+
+D. Interactive Stats Counter
+Effect: A "Scroll-Triggered Count-Up." As the user reaches this section, numbers (e.g., 150+ Projects, 10+ Years) should rapidly roll up to their final value.
+
+Background: A subtle parallax effect where a large "S" (for Savista) moves slowly in the background as the user scrolls.
+
+E. Case Studies / Portfolio
+Horizontal Scroll: Instead of vertical, this section should use a Sticky-Horizontal Scroll. As the user scrolls down, the page stays fixed while the case study cards slide from right to left.
+
+Image Effect: Use a Zoom-on-Hover. The thumbnail image should scale up slightly (1.1x) inside its frame without spilling out (overflow: hidden).
+
+3. Detailed Micro-Interactions (The "Small" Effects)
+To match the "CoSol" feel, you must include these "small" details:
+
+Custom Cursor: Replace the default mouse pointer with a small, branded circle.
+
+Effect: When hovering over a link, the circle expands and becomes transparent, acting as a "magnifying glass" for the text.
+
+Smooth Scrolling: Implement Lenis or Locomotive Scroll. This removes the "jerkiness" of standard scrolling, giving the site a luxury, fluid feel.
+
+Reveal Masking: Use "Intersection Observer" API so that as the user scrolls, sections don't just "appear"—they "unmask" (like a curtain opening) from left to right.
+
+Glass Navigation: The header (Nav Bar) should be transparent at the top. On scroll, it should gain a Backdrop Filter: Blur(10px) and a solid bottom border, shrinking slightly in height.
+
+4. Technical Stack Recommendation
+To achieve these specific animations smoothly, tell your developers to use:
+
+Frontend: React.js or Next.js (for speed and SEO).
+
+Animation Library: GSAP (GreenSock) is mandatory for the high-end timeline animations (like the horizontal scroll and text reveals).
+
+Styling: Tailwind CSS for the modern layout and Glassmorphism effects.
+
+Transitions: Framer Motion for simple entry/exit animations of components.
+
+5. Final Prompt for a Developer/AI
+"Build a high-end corporate website for 'Savista Tech' (a software development firm) inspired by CoSol.in. Use a dark mode theme with cobalt blue accents. Include a smooth scroll experience (Lenis), GSAP-powered text reveals on scroll, and glassmorphic service cards with spotlight border effects. The hero section must feature a subtle data-flow background. Ensure a staggered fade-in for all grid elements and a magnetic CTA button."
