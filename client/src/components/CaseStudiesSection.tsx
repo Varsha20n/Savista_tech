@@ -48,18 +48,18 @@ export function CaseStudiesSection() {
   }, [displayCases]);
 
   return (
-    <section id="case-studies" ref={sectionRef} className="py-24 md:h-screen flex flex-col justify-center bg-background overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full mb-12 md:mb-20 shrink-0">
+    <section id="case-studies" ref={sectionRef} className="py-24  flex flex-col justify-center bg-background overflow-hidden relative ">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full mb-12  shrink-0">
         <h2 className="text-sm font-medium tracking-widest text-[hsl(var(--cyan))] uppercase mb-4">Portfolio</h2>
         <h3 className="text-4xl md:text-6xl font-bold text-foreground">Featured <span className="text-muted-foreground">Work</span></h3>
       </div>
 
-      <div className="w-full overflow-x-auto md:overflow-visible no-scrollbar pb-8 md:pb-0">
+      <div className="w-full  overflow-x-auto md:overflow-visible no-scrollbar pb-8 md:pb-0 ">
         <div ref={scrollRef} className="flex gap-8 px-6 md:px-12 w-max">
           {displayCases.map((study, idx) => (
             <div 
               key={study.id} 
-              className="w-[85vw] md:w-[600px] lg:w-[800px] shrink-0 group cursor-pointer magnetic-interactive"
+              className="w-[85vw] md:w-[600px] lg:w-[800px]  shrink-0 group cursor-pointer magnetic-interactive"
             >
               <div className="relative overflow-hidden rounded-2xl aspect-[16/9] mb-6 border border-border">
                 <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
