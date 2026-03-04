@@ -55,9 +55,9 @@ export function ServicesSection() {
     <section id="services" className="py-32 relative" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-20 max-w-3xl">
-            <h2 className="text-sm font-medium tracking-widest text-[hsl(var(--cyan))] uppercase mb-4">Core Capabilities</h2>
-            <h3 className="text-4xl font-bold text-foreground mb-6">Digital Excellence <br/><span className="text-muted-foreground">Engineered</span></h3>
-          </div>
+          <h2 className="text-sm font-medium tracking-widest text-[hsl(var(--cyan))] uppercase mb-4">Core Capabilities</h2>
+          <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Digital Excellence <br/><span className="text-muted-foreground">Engineered</span></h3>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayServices.map((service) => {

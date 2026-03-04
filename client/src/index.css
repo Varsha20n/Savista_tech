@@ -55,16 +55,16 @@
   --background: var(--obsidian);
   --foreground: var(--white);
   
-  --muted: 215 20% 15%;
+  --muted: 215 20% 12%;
   --muted-foreground: var(--slate);
 
   --border: 215 20% 15%;
   --input: 215 20% 15%;
   --ring: var(--cyan);
   
-  --card: 215 20% 10%;
+  --card: 215 20% 8%;
   --card-foreground: var(--white);
-  --card-border: 215 20% 15%;
+  --card-border: 215 20% 12%;
 }
 
 @layer base {

@@ -51,7 +51,7 @@ export function CaseStudiesSection() {
     <section id="case-studies" ref={sectionRef} className="py-24 md:h-screen flex flex-col justify-center bg-background overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full mb-12 md:mb-20 shrink-0">
         <h2 className="text-sm font-medium tracking-widest text-[hsl(var(--cyan))] uppercase mb-4">Portfolio</h2>
-        <h3 className="text-4xl font-bold text-foreground">Featured <span className="text-muted-foreground">Work</span></h3>
+        <h3 className="text-4xl md:text-6xl font-bold text-foreground">Featured <span className="text-muted-foreground">Work</span></h3>
       </div>
 
       <div className="w-full overflow-x-auto md:overflow-visible no-scrollbar pb-8 md:pb-0">
@@ -61,8 +61,8 @@ export function CaseStudiesSection() {
               key={study.id} 
               className="w-[85vw] md:w-[600px] lg:w-[800px] shrink-0 group cursor-pointer magnetic-interactive"
             >
-              <div className="relative overflow-hidden rounded-2xl aspect-[16/9] mb-6">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+              <div className="relative overflow-hidden rounded-2xl aspect-[16/9] mb-6 border border-border">
+                <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                 {/* Unsplash image via API or fallback */}
                 <img 
                   src={study.imageUrl} 
@@ -70,7 +70,7 @@ export function CaseStudiesSection() {
                   className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute bottom-6 left-6 z-20">
-                  <div className="inline-block px-4 py-2 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-sm font-semibold text-white">
+                  <div className="inline-block px-4 py-2 bg-white/80 dark:bg-black/50 backdrop-blur-md rounded-full border border-black/5 dark:border-white/10 text-sm font-semibold text-foreground dark:text-white">
                     {study.results}
                   </div>
                 </div>

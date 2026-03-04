@@ -55,7 +55,7 @@ export function Navbar() {
           
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full hover:bg-muted transition-colors magnetic-interactive text-foreground"
+            className="p-2 rounded-full hover:bg-muted transition-colors magnetic-interactive text-foreground/80 hover:text-foreground"
             aria-label="Toggle theme"
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}

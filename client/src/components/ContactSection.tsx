@@ -75,7 +75,7 @@ export function ContactSection() {
                   className="w-full bg-muted border border-border rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[hsl(var(--cyan))] focus:ring-1 focus:ring-[hsl(var(--cyan))]/50 transition-all"
                   placeholder="John Doe"
                 />
-                {errors.name && <span className="text-red-400 text-sm mt-1">{errors.name.message}</span>}
+                {errors.name && <span className="text-red-500 dark:text-red-400 text-sm mt-1">{errors.name.message}</span>}
               </div>
               
               <div>
@@ -86,7 +86,7 @@ export function ContactSection() {
                   className="w-full bg-muted border border-border rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[hsl(var(--cyan))] focus:ring-1 focus:ring-[hsl(var(--cyan))]/50 transition-all"
                   placeholder="john@company.com"
                 />
-                {errors.email && <span className="text-red-400 text-sm mt-1">{errors.email.message}</span>}
+                {errors.email && <span className="text-red-500 dark:text-red-400 text-sm mt-1">{errors.email.message}</span>}
               </div>
               
               <div>
@@ -97,7 +97,7 @@ export function ContactSection() {
                   className="w-full bg-muted border border-border rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[hsl(var(--cyan))] focus:ring-1 focus:ring-[hsl(var(--cyan))]/50 transition-all resize-none"
                   placeholder="Tell us about your vision..."
                 />
-                {errors.message && <span className="text-red-400 text-sm mt-1">{errors.message.message}</span>}
+                {errors.message && <span className="text-red-500 dark:text-red-400 text-sm mt-1">{errors.message.message}</span>}
               </div>
 
               <MagneticButton type="submit" disabled={isPending} className="w-full flex justify-center py-5">
