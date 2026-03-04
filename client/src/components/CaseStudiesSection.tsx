@@ -48,10 +48,10 @@ export function CaseStudiesSection() {
   }, [displayCases]);
 
   return (
-    <section id="case-studies" ref={sectionRef} className="py-24 md:h-screen flex flex-col justify-center bg-black overflow-hidden relative">
+    <section id="case-studies" ref={sectionRef} className="py-24 md:h-screen flex flex-col justify-center bg-background overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full mb-12 md:mb-20 shrink-0">
         <h2 className="text-sm font-medium tracking-widest text-[hsl(var(--cyan))] uppercase mb-4">Portfolio</h2>
-        <h3 className="text-4xl md:text-6xl font-bold text-white">Featured <span className="text-slate-500">Work</span></h3>
+        <h3 className="text-4xl font-bold text-foreground">Featured <span className="text-muted-foreground">Work</span></h3>
       </div>
 
       <div className="w-full overflow-x-auto md:overflow-visible no-scrollbar pb-8 md:pb-0">
@@ -77,11 +77,11 @@ export function CaseStudiesSection() {
               </div>
               <div className="flex justify-between items-start">
                 <div>
-                  <h4 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-[hsl(var(--cyan))] transition-colors">{study.title}</h4>
-                  <p className="text-slate-400 text-lg max-w-lg">{study.description}</p>
+                  <h4 className="text-3xl font-display font-bold text-foreground mb-2 group-hover:text-[hsl(var(--cyan))] transition-colors">{study.title}</h4>
+                  <p className="text-muted-foreground text-lg max-w-lg">{study.description}</p>
                 </div>
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transform -rotate-45 group-hover:rotate-0 transition-transform duration-500 bg-white/5">
-                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center transform -rotate-45 group-hover:rotate-0 transition-transform duration-500 bg-muted">
+                  <svg className="w-5 h-5 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </div>

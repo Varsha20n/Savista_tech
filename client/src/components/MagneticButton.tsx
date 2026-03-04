@@ -69,7 +69,7 @@ export function MagneticButton({ children, className = "", ...props }: MagneticB
       className={`
         relative overflow-hidden group magnetic-interactive
         px-8 py-4 rounded-full font-semibold text-white tracking-wide
-        border border-white/20 bg-white/5 backdrop-blur-md
+        border border-primary/20 bg-primary backdrop-blur-md
         transition-colors duration-300
         ${className}
       `}

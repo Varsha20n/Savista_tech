@@ -24,10 +24,10 @@ const StatItem = ({ endValue, label, suffix = "" }: { endValue: number, label: s
 
   return (
     <div ref={ref} className="text-center md:text-left">
-      <div className="text-5xl md:text-7xl font-display font-bold text-white mb-2 tracking-tighter">
+      <div className="text-5xl font-display font-bold text-foreground mb-2 tracking-tighter">
         {value}{suffix}
       </div>
-      <div className="text-slate-400 uppercase tracking-widest text-sm font-medium">{label}</div>
+      <div className="text-muted-foreground uppercase tracking-widest text-sm font-medium">{label}</div>
     </div>
   );
 };
@@ -52,11 +52,11 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section id="stats" className="py-40 relative overflow-hidden bg-white/[0.01] border-y border-white/5">
+    <section id="stats" className="py-40 relative overflow-hidden bg-muted border-y border-border">
       {/* Parallax Background 'S' */}
       <div 
         ref={bgRef}
-        className="absolute top-0 left-1/2 -translate-x-1/2 text-[40rem] font-display font-bold leading-none text-white/[0.02] select-none pointer-events-none z-0"
+        className="absolute top-0 left-1/2 -translate-x-1/2 text-[40rem] font-display font-bold leading-none text-foreground/[0.02] select-none pointer-events-none z-0"
       >
         S
       </div>

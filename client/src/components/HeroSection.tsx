@@ -60,18 +60,18 @@ export function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 hero-fade-in">
-            <span className="w-2 h-2 rounded-full bg-[hsl(var(--cyan))] animate-pulse" />
-            <span className="text-xs font-medium tracking-wide uppercase text-slate-300">Premium Software Development</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8">
-            <SplitText>Empowering the Next Wave of Digital Innovation</SplitText>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 hero-fade-in font-sans font-light leading-relaxed">
-            We build high-end corporate digital experiences and robust software solutions that transform ambitious visions into market-leading realities.
-          </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border mb-8 hero-fade-in">
+              <span className="w-2 h-2 rounded-full bg-[hsl(var(--cyan))] animate-pulse" />
+              <span className="text-xs font-medium tracking-wide uppercase text-muted-foreground">Premium Software Development</span>
+            </div>
+            
+            <h1 className="text-8xl font-bold leading-[1.1] mb-8">
+              <SplitText>Empowering the Next Wave of Digital Innovation</SplitText>
+            </h1>
+            
+            <p className="text-lg text-muted-foreground max-w-2xl mb-12 hero-fade-in font-sans font-light leading-relaxed">
+              We build high-end corporate digital experiences and robust software solutions that transform ambitious visions into market-leading realities.
+            </p>
           
           <div className="hero-fade-in flex flex-wrap gap-6 items-center">
             <MagneticButton onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -80,7 +80,7 @@ export function HeroSection() {
             
             <button 
               onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 rounded-full font-semibold text-white tracking-wide border border-transparent hover:border-white/20 transition-all duration-300 magnetic-interactive group"
+              className="px-8 py-4 rounded-full font-semibold text-foreground tracking-wide border border-transparent hover:border-border transition-all duration-300 magnetic-interactive group"
             >
               <span className="flex items-center gap-2">
                 Our Work

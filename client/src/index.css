@@ -12,8 +12,9 @@
   --slate: 215 16% 65%; /* Slate Grey */
   --white: 0 0% 100%;
   
+  /* Light Theme Colors - Improved Contrast */
   --background: 0 0% 100%;
-  --foreground: var(--obsidian);
+  --foreground: 222 84% 5%; /* Darker for better contrast */
   
   --primary: var(--cobalt);
   --primary-foreground: var(--white);
@@ -21,17 +22,33 @@
   --accent: var(--cyan);
   --accent-foreground: var(--obsidian);
   
-  --muted: 215 20% 95%;
-  --muted-foreground: 215 16% 45%;
+  --muted: 210 40% 96%; /* Lighter muted background */
+  --muted-foreground: 215 16% 40%; /* Darker muted text for better contrast */
 
-  --border: 215 20% 90%;
+  --border: 214 32% 91%; /* Slightly darker border for better visibility */
+  --input: 214 32% 91%;
+  --ring: var(--cobalt);
 
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Syne', sans-serif;
   
   --card: 0 0% 98%;
-  --card-foreground: var(--obsidian);
-  --card-border: 215 20% 90%;
+  --card-foreground: 222 84% 5%; /* Darker card text */
+  --card-border: 214 32% 91%;
+
+  /* Responsive Typography Scale */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.375rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.75rem);
+  --text-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.25rem);
+  --text-4xl: clamp(2.25rem, 2rem + 1.75vw, 2.75rem);
+  --text-5xl: clamp(3rem, 2.6rem + 2vw, 3.5rem);
+  --text-6xl: clamp(3.75rem, 3.2rem + 2.75vw, 4.5rem);
+  --text-7xl: clamp(4.5rem, 4rem + 3.5vw, 5.5rem);
+  --text-8xl: clamp(5.5rem, 5rem + 4.5vw, 7rem);
 }
 
 .dark {
@@ -42,6 +59,8 @@
   --muted-foreground: var(--slate);
 
   --border: 215 20% 15%;
+  --input: 215 20% 15%;
+  --ring: var(--cyan);
   
   --card: 215 20% 10%;
   --card-foreground: var(--white);
@@ -53,6 +72,7 @@
     @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white;
     font-family: var(--font-sans);
     cursor: none; /* Hide default cursor for custom cursor */
+    font-size: var(--text-base);
   }
 
   body {
@@ -63,6 +83,55 @@
     font-family: var(--font-display);
     @apply font-bold tracking-tight text-foreground;
   }
+
+  h1 {
+    font-size: var(--text-5xl);
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: var(--text-4xl);
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: var(--text-2xl);
+    line-height: 1.25;
+  }
+
+  h5 {
+    font-size: var(--text-xl);
+    line-height: 1.3;
+  }
+
+  h6 {
+    font-size: var(--text-lg);
+    line-height: 1.35;
+  }
+
+  p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+
+  /* Responsive text utilities */
+  .text-xs { font-size: var(--text-xs); }
+  .text-sm { font-size: var(--text-sm); }
+  .text-base { font-size: var(--text-base); }
+  .text-lg { font-size: var(--text-lg); }
+  .text-xl { font-size: var(--text-xl); }
+  .text-2xl { font-size: var(--text-2xl); }
+  .text-3xl { font-size: var(--text-3xl); }
+  .text-4xl { font-size: var(--text-4xl); }
+  .text-5xl { font-size: var(--text-5xl); }
+  .text-6xl { font-size: var(--text-6xl); }
+  .text-7xl { font-size: var(--text-7xl); }
+  .text-8xl { font-size: var(--text-8xl); }
   
   /* Fallback for elements that might force cursor */
   a, button, input, textarea, select {

@@ -55,9 +55,9 @@ export function ServicesSection() {
     <section id="services" className="py-32 relative" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-20 max-w-3xl">
-          <h2 className="text-sm font-medium tracking-widest text-[hsl(var(--cyan))] uppercase mb-4">Core Capabilities</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">Digital Excellence <br/><span className="text-slate-500">Engineered</span></h3>
-        </div>
+            <h2 className="text-sm font-medium tracking-widest text-[hsl(var(--cyan))] uppercase mb-4">Core Capabilities</h2>
+            <h3 className="text-4xl font-bold text-foreground mb-6">Digital Excellence <br/><span className="text-muted-foreground">Engineered</span></h3>
+          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayServices.map((service) => {
@@ -65,15 +65,15 @@ export function ServicesSection() {
             return (
               <div 
                 key={service.id}
-                className="service-card spotlight-wrapper h-full bg-white/[0.02] border border-white/5 rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 magnetic-interactive"
+                className="service-card spotlight-wrapper h-full bg-card border border-border rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 magnetic-interactive"
                 onMouseMove={handleMouseMove}
               >
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center mb-6 border border-white/10">
+                  <div className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center mb-6 border border-border">
                     <Icon className="w-6 h-6 text-[hsl(var(--cobalt))]" />
                   </div>
-                  <h4 className="text-2xl font-display font-semibold text-white mb-4">{service.title}</h4>
-                  <p className="text-slate-400 leading-relaxed font-sans">{service.description}</p>
+                  <h4 className="text-2xl font-display font-semibold text-foreground mb-4">{service.title}</h4>
+                  <p className="text-muted-foreground leading-relaxed font-sans">{service.description}</p>
                 </div>
               </div>
             );
