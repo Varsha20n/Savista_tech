@@ -28,7 +28,7 @@ export function Navbar() {
       className={`
         fixed top-0 w-full z-50 transition-all duration-500
         ${scrolled 
-          ? "py-4 bg-background/70 backdrop-blur-xl border-b border-border" 
+          ? "py-4 bg-background/70 backdrop-blur-xl border-b border-border rounded-b-2xl" 
           : "py-6 bg-transparent border-transparent"
         }
       `}

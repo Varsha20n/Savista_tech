@@ -44,7 +44,7 @@ export function HeroSection() {
       {/* Video Background */}
       <div className="absolute inset-0 z-[0]">
         <video
-          src="/video5.mp4"
+          src="/video.mp4"
           autoPlay
           loop
           muted
