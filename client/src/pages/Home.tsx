@@ -6,7 +6,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { PartnerMarquee } from "@/components/PartnerMarquee";
 import { ServicesSection } from "@/components/ServicesSection";
 import { StatsSection } from "@/components/StatsSection";
-import { CaseStudiesSection } from "@/components/CaseStudiesSection";
+import { PortfolioSection } from "@/components/PortfolioSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 
@@ -47,7 +47,7 @@ export default function Home() {
           <StatsSection />
         </div>
         
-        <CaseStudiesSection />
+        <PortfolioSection />
         
         <div className="reveal-mask">
           <ContactSection />

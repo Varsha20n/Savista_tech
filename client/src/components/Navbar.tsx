@@ -42,7 +42,7 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden md:flex gap-8 items-center">
-          {["Services", "Case Studies", "Stats", "Contact"].map((item) => (
+          {["Services", "Stats", "Contact"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -52,6 +52,11 @@ export function Navbar() {
               {item}
             </a>
           ))}
+          <Link href="/portfolio">
+            <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors magnetic-interactive">
+              Portfolio
+            </a>
+          </Link>
           
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
