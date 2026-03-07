@@ -13,8 +13,8 @@ export async function registerRoutes(
     res.json(data);
   });
 
-  app.get(api.caseStudies.list.path, async (req, res) => {
-    const data = await storage.getCaseStudies();
+  app.get(api.portfolio.list.path, async (req, res) => {
+    const data = await storage.getPortfolio();
     res.json(data);
   });
 

@@ -27,7 +27,7 @@ export function Footer() {
                   <a href="#" className="text-muted-foreground hover:text-foreground transition-colors magnetic-interactive">{link}</a>
                 </li>
               ))}
-            </ul>
+            </ul> 
           </div>
           
           <div>

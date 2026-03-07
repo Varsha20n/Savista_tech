@@ -31,7 +31,17 @@ export async function setupVite(server: Server, app: Express) {
 
   app.use(vite.middlewares);
 
-  app.use("/{*path}", async (req, res, next) => {
+  app.use(async (req, res, next) => {
+    // Skip API routes for Vite
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
+
+    // Only handle GET requests for HTML
+    if (req.method !== "GET") {
+      return next();
+    }
+
     const url = req.originalUrl;
 
     try {

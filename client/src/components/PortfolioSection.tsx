@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useCaseStudies } from "@/hooks/use-case-studies";
+import { usePortfolio } from "@/hooks/use-case-studies";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,9 +15,9 @@ const FALLBACK_CASES = [
 export function PortfolioSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { data: caseStudies = [] } = useCaseStudies();
+  const { data: portfolio = [] } = usePortfolio();
   
-  const displayCases = caseStudies.length > 0 ? caseStudies : FALLBACK_CASES;
+  const displayCases = portfolio.length > 0 ? portfolio : FALLBACK_CASES;
 
   useEffect(() => {
     // Only apply horizontal scroll on desktop

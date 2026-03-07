@@ -9,12 +9,14 @@ export const services = pgTable("services", {
   icon: text("icon").notNull(),
 });
 
-export const caseStudies = pgTable("case_studies", {
+export const portfolio = pgTable("portfolio", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
   description: text("description").notNull(),
   imageUrl: text("image_url").notNull(),
   results: text("results").notNull(),
+  icon: text("icon").notNull().default("Code2"),
+  tags: text("tags").array().default([]),
 });
 
 export const contactMessages = pgTable("contact_messages", {
@@ -25,14 +27,14 @@ export const contactMessages = pgTable("contact_messages", {
 });
 
 export const insertServiceSchema = createInsertSchema(services).omit({ id: true });
-export const insertCaseStudySchema = createInsertSchema(caseStudies).omit({ id: true });
+export const insertPortfolioSchema = createInsertSchema(portfolio).omit({ id: true });
 export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({ id: true });
 
 export type Service = typeof services.$inferSelect;
 export type InsertService = z.infer<typeof insertServiceSchema>;
 
-export type CaseStudy = typeof caseStudies.$inferSelect;
-export type InsertCaseStudy = z.infer<typeof insertCaseStudySchema>;
+export type Portfolio = typeof portfolio.$inferSelect;
+export type InsertPortfolio = z.infer<typeof insertPortfolioSchema>;
 
 export type ContactMessage = typeof contactMessages.$inferSelect;
 export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;

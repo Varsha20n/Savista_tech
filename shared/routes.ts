@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { insertContactMessageSchema, contactMessages, services, caseStudies } from './schema';
+import { insertContactMessageSchema, contactMessages, services, portfolio } from './schema';
 
 export const errorSchemas = {
   validation: z.object({
@@ -21,12 +21,12 @@ export const api = {
       },
     }
   },
-  caseStudies: {
+  portfolio: {
     list: {
       method: 'GET' as const,
-      path: '/api/case-studies' as const,
+      path: '/api/portfolio' as const,
       responses: {
-        200: z.array(z.custom<typeof caseStudies.$inferSelect>()),
+        200: z.array(z.custom<typeof portfolio.$inferSelect>()),
       },
     }
   },
