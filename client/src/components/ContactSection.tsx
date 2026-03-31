@@ -40,7 +40,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-32 relative bg-background">
+    <section id="contact" className="py-12 md:py-16 relative bg-background">
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[hsl(var(--cobalt))]/50 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12">

@@ -52,7 +52,7 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section id="stats" className="py-40 relative overflow-hidden bg-muted border-y border-border">
+    <section id="stats" className="py-12 md:py-16 relative overflow-hidden bg-muted border-y border-border">
       {/* Parallax Background 'S' */}
       <div 
         ref={bgRef}

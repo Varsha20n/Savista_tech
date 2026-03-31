@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePortfolio } from "@/hooks/use-case-studies";
+import { ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,70 +21,65 @@ export function PortfolioSection() {
   const displayCases = portfolio.length > 0 ? portfolio : FALLBACK_CASES;
 
   useEffect(() => {
-    // Only apply horizontal scroll on desktop
-    const mm = gsap.matchMedia();
-    
-    mm.add("(min-width: 768px)", () => {
-      const container = scrollRef.current;
-      const section = sectionRef.current;
-      if (!container || !section) return;
-
-      const totalWidth = container.scrollWidth;
-      const viewportWidth = window.innerWidth;
-
-      gsap.to(container, {
-        x: -(totalWidth - viewportWidth + 100), // +100 for padding
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          pin: true,
-          scrub: 1,
-          end: () => `+=${totalWidth}`,
-          anticipatePin: 1,
-        }
-      });
-    });
-
-    return () => mm.revert();
+    // Removed GSAP horizontal scroll pinning as it can conflict with layout and cause visibility issues.
+    // Native horizontal scrolling (overflow-x-auto) provides a more robust and reliable experience.
   }, [displayCases]);
 
   return (
-    <section id="portfolio" ref={sectionRef} className="py-24 md:h-screen flex flex-col justify-center bg-background overflow-hidden relative">
+    <section id="portfolio" ref={sectionRef} className="py-12 md:py-16 flex flex-col justify-center bg-background overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full mb-12 md:mb-20 shrink-0">
         <h2 className="text-sm font-medium tracking-widest text-[hsl(var(--cyan))] uppercase mb-4">Portfolio</h2>
         <h3 className="text-4xl md:text-6xl font-bold text-foreground">Featured <span className="text-muted-foreground">Work</span></h3>
       </div>
 
-      <div className="w-full overflow-x-auto md:overflow-visible no-scrollbar pb-8 md:pb-0">
+      <div className="w-full overflow-x-auto no-scrollbar pb-8">
         <div ref={scrollRef} className="flex gap-8 px-6 md:px-12 w-max">
           {displayCases.map((study, idx) => (
             <div 
               key={study.id} 
-              className="w-[85vw] md:w-[600px] lg:w-[800px] shrink-0 group cursor-pointer magnetic-interactive"
+              className="w-[85vw] md:w-[600px] lg:w-[800px] shrink-0 group relative overflow-hidden rounded-[2rem] aspect-[4/5] md:aspect-[16/9] cursor-pointer magnetic-interactive border border-white/10 shadow-2xl bg-black"
             >
-              <div className="relative overflow-hidden rounded-2xl aspect-[16/9] mb-6 border border-border">
-                <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                {/* Unsplash image via API or fallback */}
+              {/* Background Image with Hover Scale */}
+              <div className="absolute inset-0">
                 <img 
                   src={study.imageUrl} 
                   alt={study.title}
-                  className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-110 transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)]"
                 />
-                <div className="absolute bottom-6 left-6 z-20">
-                  <div className="inline-block px-4 py-2 bg-white/80 dark:bg-black/50 backdrop-blur-md rounded-full border border-black/5 dark:border-white/10 text-sm font-semibold text-foreground dark:text-white">
-                    {study.results}
-                  </div>
-                </div>
               </div>
-              <div className="flex justify-between items-start">
-                <div>
-                  <h4 className="text-3xl font-display font-bold text-foreground mb-2 group-hover:text-[hsl(var(--cyan))] transition-colors">{study.title}</h4>
-                  <p className="text-muted-foreground text-lg max-w-lg">{study.description}</p>
-                </div>
-                <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center transform -rotate-45 group-hover:rotate-0 transition-transform duration-500 bg-muted">
-                  <svg className="w-5 h-5 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
+
+              {/* Complex Premium Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10 opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-[hsl(var(--cobalt))]/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+              {/* Content Container */}
+              <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end z-20">
+                <div className="translate-y-4 md:translate-y-8 group-hover:translate-y-0 transition-transform duration-700 ease-out flex flex-col justify-end h-full">
+                  <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div className="space-y-4 max-w-xl">
+                      <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 dark:bg-black/40 backdrop-blur-md rounded-full border border-white/20 shadow-lg relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--cyan))]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <span className="w-2 h-2 rounded-full bg-[hsl(var(--cyan))] relative z-10 shadow-[0_0_8px_hsl(var(--cyan))]" />
+                        <span className="text-xs md:text-sm font-semibold tracking-wide text-white relative z-10">
+                          {study.results}
+                        </span>
+                      </div>
+                      
+                      <h4 className="text-3xl md:text-5xl lg:text-5xl font-display font-medium text-white tracking-tight group-hover:text-[hsl(var(--cyan))] transition-colors duration-500">
+                        {study.title}
+                      </h4>
+                      
+                      <div className="overflow-hidden md:h-auto">
+                        <p className="text-white/70 text-base md:text-lg max-w-lg leading-relaxed translate-y-[120%] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-out delay-100">
+                          {study.description}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="hidden md:flex w-16 h-16 rounded-full border border-white/30 items-center justify-center bg-white/5 backdrop-blur-lg group-hover:bg-[hsl(var(--cyan))] group-hover:border-[hsl(var(--cyan))] transform -rotate-45 group-hover:rotate-0 transition-all duration-500 ease-out shrink-0 hover:scale-110">
+                      <ArrowRight className="w-7 h-7 text-white group-hover:text-black transition-colors duration-300" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

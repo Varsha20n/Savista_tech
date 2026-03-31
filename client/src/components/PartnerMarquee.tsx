@@ -15,7 +15,7 @@ const PARTNERS = [
 
 export function PartnerMarquee() {
   return (
-    <section className="py-12 border-y border-border bg-muted">
+    <section className="py-6 border-y border-border bg-muted">
       <Marquee speed={40} pauseOnHover={true} gradient={true} gradientColor="hsl(var(--background))" gradientWidth={100}>
         <div className="flex items-center">
           {PARTNERS.map((partner, index) => (

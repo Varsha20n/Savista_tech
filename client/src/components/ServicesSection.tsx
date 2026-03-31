@@ -16,7 +16,7 @@ const FALLBACK_SERVICES = [
   { id: 6, title: "Performance Optimization", description: "Lightning-fast execution via meticulous code profiling and caching strategies.", icon: "Zap" },
 ];
 
-const IconMap: Record<string, React.ElementType> = {
+const IconMap: Record<string, any> = {
   Code, Globe, Cpu, Layers, ShieldCheck, Zap
 };
 
@@ -26,21 +26,9 @@ export function ServicesSection() {
   
   const displayServices = services.length > 0 ? services : FALLBACK_SERVICES;
 
+  // Content is now visible by default to ensure reliability
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".service-card", {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 70%",
-        }
-      });
-    }, containerRef);
-    return () => ctx.revert();
+    // Reveal animations removed for consistent visibility
   }, [displayServices]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -52,28 +40,38 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="services" className="py-32 relative" ref={containerRef}>
+    <section id="services" className="py-12 md:py-16 relative" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-20 max-w-3xl">
           <h2 className="text-sm font-medium tracking-widest text-[hsl(var(--cyan))] uppercase mb-4">Core Capabilities</h2>
           <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Digital Excellence <br/><span className="text-muted-foreground">Engineered</span></h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayServices.map((service) => {
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-4 md:gap-6 auto-rows-[minmax(250px,_auto)]">
+          {displayServices.map((service, index) => {
             const Icon = IconMap[service.icon] || Code;
+            
+            // Bento Box layout logic for 6 items in a 4-column grid
+            let bentoClass = "md:col-span-2 md:row-span-1";
+            if (index === 0) bentoClass = "md:col-span-2 md:row-span-2 bg-gradient-to-br from-card to-background";
+            if (index === 1) bentoClass = "md:col-span-2 md:row-span-1";
+            if (index === 2) bentoClass = "md:col-span-2 md:row-span-1";
+            if (index === 3) bentoClass = "md:col-span-2 md:row-span-1";
+            if (index === 4) bentoClass = "md:col-span-2 md:row-span-1";
+            if (index === 5) bentoClass = "md:col-span-4 md:row-span-1 bg-gradient-to-r from-[hsl(var(--cobalt))/10] to-transparent";
+
             return (
               <div 
                 key={service.id}
-                className="service-card spotlight-wrapper h-full bg-card border border-border rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 magnetic-interactive"
+                className={`service-card spotlight-wrapper rounded-3xl p-8 lg:p-10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(46,91,255,0.15)] magnetic-interactive border border-border/60 ${bentoClass} flex flex-col`}
                 onMouseMove={handleMouseMove}
               >
-                <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center mb-6 border border-border">
-                    <Icon className="w-6 h-6 text-[hsl(var(--cobalt))]" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border border-border/50 shadow-inner ${index === 0 ? 'bg-primary/10' : 'bg-muted/50'}`}>
+                    <Icon className="w-6 h-6 text-[hsl(var(--cyan))]" />
                   </div>
-                  <h4 className="text-2xl font-display font-semibold text-foreground mb-4">{service.title}</h4>
-                  <p className="text-muted-foreground leading-relaxed font-sans">{service.description}</p>
+                  <h4 className={`font-display font-semibold text-foreground mb-4 ${index === 0 || index === 5 ? 'text-3xl' : 'text-2xl'}`}>{service.title}</h4>
+                  <p className="text-muted-foreground leading-relaxed font-sans text-lg mt-auto">{service.description}</p>
                 </div>
               </div>
             );

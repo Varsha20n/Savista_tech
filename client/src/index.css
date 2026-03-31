@@ -71,8 +71,13 @@
   html {
     @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white;
     font-family: var(--font-sans);
-    cursor: none; /* Hide default cursor for custom cursor */
     font-size: var(--text-base);
+  }
+
+  @media (min-width: 768px) {
+    html.has-custom-cursor {
+      cursor: none;
+    }
   }
 
   body {
@@ -133,9 +138,14 @@
   .text-7xl { font-size: var(--text-7xl); }
   .text-8xl { font-size: var(--text-8xl); }
   
-  /* Fallback for elements that might force cursor */
-  a, button, input, textarea, select {
-    cursor: none !important; 
+  @media (min-width: 768px) {
+    html.has-custom-cursor a, 
+    html.has-custom-cursor button, 
+    html.has-custom-cursor input, 
+    html.has-custom-cursor textarea, 
+    html.has-custom-cursor select {
+      cursor: none !important; 
+    }
   }
 }
 
@@ -150,6 +160,26 @@
 
   .glass-card {
     @apply bg-background/50 backdrop-blur-xl border border-border shadow-2xl dark:bg-white/[0.02] dark:border-white/[0.05];
+  }
+
+  /* Animated underline for Navbar links */
+  .nav-link-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: hsl(var(--cyan));
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 2px;
+  }
+  .nav-link-underline:hover::after {
+    width: 100%;
   }
 }
 
@@ -204,28 +234,51 @@ html.lenis, html.lenis body {
   opacity: 1;
 }
 
-/* Custom Cursor Styles */
-.custom-cursor {
+.custom-cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
-  width: 12px;
-  height: 12px;
-  background-color: hsl(var(--cobalt));
+  width: 8px;
+  height: 8px;
+  background-color: hsl(var(--cyan));
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              background-color 0.3s ease;
-  mix-blend-mode: difference;
+  z-index: 100000;
+  /* GSAP fully controls transform now */
+  transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.custom-cursor.hovering {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(255, 255, 255, 1);
+.custom-cursor-dot.hovering {
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.8);
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(0, 242, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.3s ease,
+              border-color 0.3s ease,
+              border-width 0.3s ease;
+}
+
+.custom-cursor-ring.hovering {
+  width: 55px;
+  height: 55px;
+  background-color: hsla(var(--cyan), 0.15);
+  border-color: hsl(var(--cyan));
+  border-width: 1px;
+  backdrop-filter: blur(2px);
 }
 
 /* Data flow background animation */

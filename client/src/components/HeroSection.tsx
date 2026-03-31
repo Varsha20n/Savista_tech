@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { MagneticButton } from "./MagneticButton";
+import { InteractiveHero3D } from "./InteractiveHero3D";
 
 // Helper to wrap text for GSAP animation
 const SplitText = ({ children }: { children: string }) => {
@@ -40,8 +41,11 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
-      {/* Video Background */}
+    <section ref={containerRef} className="relative min-h-[85vh] flex items-center pt-20 pb-8 overflow-hidden">
+      {/* 3D Interactive Background */}
+      <InteractiveHero3D />
+
+      {/* Video Background (Faded to act as atmosphere behind 3D) */}
       <div className="absolute inset-0 z-[0]">
         <video
           src="/video.mp4"
@@ -49,7 +53,7 @@ export function HeroSection() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-cover opacity-30 mix-blend-screen"
         />
       </div>
 

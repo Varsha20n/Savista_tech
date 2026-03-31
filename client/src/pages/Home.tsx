@@ -8,53 +8,44 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { StatsSection } from "@/components/StatsSection";
 import { PortfolioSection } from "@/components/PortfolioSection";
 import { ContactSection } from "@/components/ContactSection";
+import { PageTransition } from "@/components/PageTransition";
 import { Footer } from "@/components/Footer";
+import { KineticMarquee } from "@/components/KineticMarquee";
+import { ProcessTimeline } from "@/components/ProcessTimeline";
 
 export default function Home() {
-  // Setup intersection observer for reveal masking
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-          entry.target.classList.remove('opacity-0', 'translate-y-10');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal-mask').forEach(el => {
-      el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    if (window.location.hash) {
+      const id = window.location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 100);
+      }
+    }
   }, []);
 
   return (
-    <Lenis root>
-      <CustomCursor />
-      <Navbar />
-      
-      <main className="bg-background text-foreground">
-        <HeroSection />
-        <PartnerMarquee />
+    <PageTransition>
+      <Lenis root>
+        <Navbar />
         
-        <div className="reveal-mask">
+        <main className="bg-background text-foreground">
+          <HeroSection />
+          <PartnerMarquee />
+          <KineticMarquee />
+          
           <ServicesSection />
-        </div>
-        
-        <div className="reveal-mask">
+          
+          <ProcessTimeline />
           <StatsSection />
-        </div>
-        
-        <PortfolioSection />
-        
-        <div className="reveal-mask">
+          
+          <PortfolioSection />
+          
           <ContactSection />
-        </div>
-      </main>
-      
-      <Footer />
-    </Lenis>
+        </main>
+        
+        <Footer />
+      </Lenis>
+    </PageTransition>
   );
 }

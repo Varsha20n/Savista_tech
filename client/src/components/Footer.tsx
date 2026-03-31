@@ -2,7 +2,7 @@ import { Link } from "wouter";
 
 export function Footer() {
   return (
-    <footer className="bg-background pt-24 pb-12 border-t border-border rounded-t-3xl relative overflow-hidden">
+    <footer className="bg-background pt-12 pb-6 border-t border-border rounded-t-3xl relative overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[300px] bg-[hsl(var(--cobalt))]/20 blur-[150px] pointer-events-none rounded-t-full" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
